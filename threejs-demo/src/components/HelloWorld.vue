@@ -32,6 +32,7 @@
               <camera></camera>
             </orbit-controls>
             <Cube :size="8" :texture="require('../assets/cobblestone.png')"></Cube>
+            <AxesHelper :size="10"></AxesHelper>
             <light :hex="0xef0011" :intensity="2" :position="{ x: 20, y: 20, z: 20 }"></light>
             <light :hex="0xefefff" :intensity="2" :position="{ x: -50, y: -50, z: -50 }"></light>
           </scene>
@@ -43,11 +44,13 @@
 
 <script>
 import Cube from './Cube.vue';
+import AxesHelper from './AxesHelper.vue';
 
 export default {
   name: 'HelloWorld',
   components: {
     Cube,
+    AxesHelper
   },
   data: () => ({
     camera: {

@@ -25,18 +25,27 @@
         </p>
       </v-col>
 
-      <v-col cols="12" class="d-flex justify-center">
-        <renderer :size="{w : 600, h: 400}">
+      <v-col cols="4" class="d-flex justify-center">
+        <renderer :size="{w : 300, h: 300}">
           <scene>
             <orbit-controls :position="camera">
               <camera></camera>
             </orbit-controls>
-            <Cube :size="8" :texture="require('../assets/cobblestone.png')"></Cube>
-            <AxesHelper :size="10"></AxesHelper>
+            <Cube v-if="true" :size="8" :texture="require('../assets/cobblestone.png')"></Cube>
+            <AxesHelper v-if="false" :size="10"></AxesHelper>
+
+            <ArrowHelper :dir="{ x: 0, y: 0, z: 1 }" :origin="{ x: 0, y: 0, z: 0 }" :length="8" :color="0x0000ff" :headScale="0.1"></ArrowHelper>
+            <ArrowHelper :dir="{ x: 1, y: 0, z: 0 }" :origin="{ x: 0, y: 0, z: 0 }" :length="8" :color="0xff0000" :headScale="0.1"></ArrowHelper>
+            <ArrowHelper :dir="{ x: 0, y: 1, z: 0 }" :origin="{ x: 0, y: 0, z: 0 }" :length="8" :color="0x00ff00" :headScale="0.1"></ArrowHelper>
+
             <light :hex="0xef0011" :intensity="2" :position="{ x: 20, y: 20, z: 20 }"></light>
             <light :hex="0xefefff" :intensity="2" :position="{ x: -50, y: -50, z: -50 }"></light>
           </scene>
         </renderer>
+      </v-col>
+      <v-col cols="4" class="d-flex justify-center">
+        <SphereFit :size="{ w: 300, h: 300}">
+        </SphereFit>
       </v-col>
     </v-row>
   </v-container>
@@ -45,12 +54,16 @@
 <script>
 import Cube from './Cube.vue';
 import AxesHelper from './AxesHelper.vue';
+import ArrowHelper from './ArrowHelper.vue';
+import SphereFit from './SphereFit.vue';
 
 export default {
   name: 'HelloWorld',
   components: {
     Cube,
-    AxesHelper
+    AxesHelper,
+    ArrowHelper,
+    SphereFit,
   },
   data: () => ({
     camera: {

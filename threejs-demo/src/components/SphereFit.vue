@@ -38,29 +38,10 @@ export default {
   methods: {
     rand(min, max) {
       return Math.random() * (max - min) + min;
-    }
-  },
-  mounted() {
-    setInterval(() => {
-      let p = {
-        x: this.rand(-5, 5),
-        y: this.rand(-5, 5),
-        z: this.rand(-5, 5),
-      };
-
-      // normalize p
-      let l = Math.sqrt(p.x * p.x + p.y * p.y + p.z * p.z);
-
-      p.x /= l;
-      p.y /= l;
-      p.z /= l;
-
-      p.x *= 5;
-      p.y *= 5;
-      p.z *= 5;
-
+    },
+    add_point(p) {
       this.$refs.pt.add_point(p);
-    }, 30);
+    },
   },
 }
 </script>

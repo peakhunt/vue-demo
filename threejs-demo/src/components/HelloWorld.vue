@@ -43,9 +43,15 @@
           </scene>
         </renderer>
       </v-col>
+
       <v-col cols="4" class="d-flex justify-center">
         <SphereFit :size="{ w: 300, h: 300}">
         </SphereFit>
+      </v-col>
+
+      <v-col cols="4" class="d-flex justify-center">
+        <OrientationView :size="{ w: 300, h: 300}">
+        </OrientationView>
       </v-col>
     </v-row>
   </v-container>
@@ -56,6 +62,7 @@ import Cube from './Cube.vue';
 import AxesHelper from './AxesHelper.vue';
 import ArrowHelper from './ArrowHelper.vue';
 import SphereFit from './SphereFit.vue';
+import OrientationView from './OrientationView.vue';
 
 export default {
   name: 'HelloWorld',
@@ -64,6 +71,7 @@ export default {
     AxesHelper,
     ArrowHelper,
     SphereFit,
+    OrientationView,
   },
   data: () => ({
     camera: {

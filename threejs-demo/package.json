@@ -14,9 +14,9 @@
   "main": "background.js",
   "dependencies": {
     "core-js": "^3.6.5",
-    "dat.gui": "^0.7.7",
+    "dat.gui": "^0.7.5",
     "oimo": "^1.0.9",
-    "three": "^0.128.0",
+    "three": "^0.86.0",
     "vue": "^2.6.11",
     "vue-threejs": "^0.2.0-alpha.1",
     "vuetify": "^2.4.0",

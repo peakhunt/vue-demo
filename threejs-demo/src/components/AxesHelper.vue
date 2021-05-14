@@ -10,7 +10,7 @@ export default {
     let curObj = this.obj;
 
     if(!curObj) {
-      curObj = new THREE.AxesHelper( this.size);
+      curObj = new THREE.AxisHelper( this.size);
     }
 
     return { curObj };

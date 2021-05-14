@@ -13,7 +13,7 @@ export default {
       let dotGeometry = new THREE.BufferGeometry();
       let positions = new Float32Array(this.maxPoints * 3);
 
-      dotGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+      dotGeometry.addAttribute('position', new THREE.BufferAttribute(positions, 3));
       dotGeometry.setDrawRange(0, 0);
 
       let dotMaterial = new THREE.PointsMaterial({ color: this.color, size: 0.1, sizeAttenuation: true })

@@ -36,9 +36,6 @@ export default {
     ],
   }),
   methods: {
-    rand(min, max) {
-      return Math.random() * (max - min) + min;
-    },
     add_point(p) {
       this.$refs.pt.add_point(p);
     },

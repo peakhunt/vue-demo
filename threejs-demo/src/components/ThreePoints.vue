@@ -1,6 +1,6 @@
 <script>
-import * as THREE from 'three'
-import { Object3D } from 'vue-threejs'
+import * as THREE from 'three';
+import { Object3D } from 'vue-threejs';
 
 export default {
   name: 'ThreePoints',

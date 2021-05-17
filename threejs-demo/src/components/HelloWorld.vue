@@ -26,7 +26,7 @@
       </v-col>
 
       <v-col cols="4" class="d-flex justify-center">
-        <OrientationView :size="{ w: 300, h: 300}">
+        <OrientationView ref="orient" :size="{ w: 300, h: 300}">
         </OrientationView>
       </v-col>
 
@@ -45,6 +45,7 @@ import ArrowHelper from './ArrowHelper.vue';
 import SphereFit from './SphereFit.vue';
 import OrientationView from './OrientationView.vue';
 import LineChart from './LineChart';
+import * as THREE from 'three';
 
 export default {
   name: 'HelloWorld',
@@ -63,6 +64,7 @@ export default {
     ]),
   },
   data: () => ({
+    orientation: null,
     camera: {
       x: 0, y: 0, z: 15
     },
@@ -188,6 +190,23 @@ export default {
 
       this.$refs.sphere.add_point(p);
     }, 30);
+
+
+    setInterval(() => {
+      let qDelta = new THREE.Quaternion();
+      qDelta.setFromAxisAngle(new THREE.Vector3(1, 1, 1), 2 * Math.PI / 300);
+      //qDelta.setFromAxisAngle(new THREE.Vector3(this.rand(-1,1), this.rand(-1,1), this.rand(-1,1)), this.rand(-Math.PI / 30, Math.PI / 30));
+      qDelta.normalize();
+
+      if (this.orientation === null) {
+        this.orientation = qDelta;
+      } else {
+        this.orientation.multiply(qDelta);
+      }
+      this.orientation.normalize();
+
+      this.$refs.orient.setOrientation(this.orientation);
+    }, 50);
   },
 }
 </script>
